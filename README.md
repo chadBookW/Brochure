@@ -1,71 +1,112 @@
-# Getting Started with Create React App
+# Simple Real Estate Brochure Copy Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This repository contains a web application that empowers users to create marketing copy for a real estate developer's brochure, utilizing language models. The application has both front-end and back-end components.
 
-In the project directory, you can run:
+Features
 
-### `npm start`
+Front-End Desktop Web App: A React JS front-end with input fields for Tone, Length of the Copy, Features of the Building, and Brand Positioning. It also includes buttons for generating the marketing copy, inserting data into a database, and regenerating the copy.
+Back-End Server: A backend server implemented in Node.js (Express) with REST API endpoints for generating marketing copy, inserting data into a Supabase database, and regenerating portions of the copy.
+Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Node.js and npm (or yarn)
+Python (if you prefer to implement the backend server in Python)
+Supabase account
+Eden AI API Key
+Setup Instructions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Front-End Setup
+Install Dependencies: Navigate to the frontend directory and install the dependencies.
 
-### `npm test`
+bash
+Copy code
+cd frontend
+npm install
+Start the Front-End Server: Start the development server.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+bash
+Copy code
+npm start
+Back-End Setup
+Install Dependencies: Navigate to the backend directory and install the dependencies.
 
-### `npm run build`
+bash
+Copy code
+cd backend
+npm install
+Environment Variables: Create a .env file in the backend directory with the following environment variables:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+plaintext
+Copy code
+EDEN_AI_API_KEY=your_eden_ai_api_key
+SUPABASE_URL=your_supabase_url
+SUPABASE_KEY=your_supabase_key
+Start the Back-End Server: Start the backend server.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+bash
+Copy code
+npm start
+Application Components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Front-End
+The front-end is built with React JS and includes the following components:
 
-### `npm run eject`
+Input Fields:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Tone: Dropdown list with options "Casual", "Formal", "Grandiose".
+Length of the Copy: Dropdown list with options "Short" (4-6 sentences), "Medium" (8-10 sentences), "Long" (15-20 sentences).
+Features of the Building: Text input box for building features.
+Brand Positioning: Text input box for brand positioning.
+Buttons:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Generate: Sends input data to the backend to generate marketing copy.
+Insert in DB: Sends input data and generated copy to the backend to be inserted into the Supabase database.
+Regenerate: Allows users to highlight portions of the generated copy and regenerate the selected portion.
+Back-End
+The backend is built with Node.js (Express) and includes the following REST API endpoints:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+POST /generate: Generates marketing copy using the Eden AI platform's OpenAI model.
+POST /insert: Inserts input data and generated copy into a Supabase database.
+POST /regenerate: Regenerates selected portions of the generated copy.
+Supabase Setup
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Sign Up: Create a free account on Supabase.
 
-## Learn More
+Create a Project: Spin up a new project.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create a Table: Create a table with the following schema:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Column Name	Data Type	Description
+Positioning	text	Input A on Front End
+Features	text	Input B on Front End
+Tone	varchar	Input C on Front End
+Length	varchar	Input D on Front End
+Output	text	LLM Generated Output
+Get Supabase URL and Key: Obtain the URL and API Key from your Supabase project settings and add them to the .env file in the backend.
 
-### Code Splitting
+Running the Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Start the front-end server.
 
-### Analyzing the Bundle Size
+bash
+Copy code
+cd frontend
+npm start
+Start the back-end server.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+bash
+Copy code
+cd backend
+npm start
+Open the front-end application in your browser and use the input fields to generate, insert, and regenerate marketing copy.
 
-### Making a Progressive Web App
+Bonus Task
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The bonus task involves regenerating selected portions of the generated copy. Users can highlight portions of the text, choose to make it longer or shorter, and the backend will regenerate the highlighted portion accordingly.
 
-### Advanced Configuration
+Regenerate Endpoint
+POST /regenerate: Accepts the highlighted text, the complete text output, and the chosen option ("Make it longer" or "Make it shorter"). Calls the language model API to regenerate the selected portion based on the prompt template and returns the modified copy.
+References
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Brochure
+Eden AI Guide
+Supabase Documentation

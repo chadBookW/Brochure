@@ -11,13 +11,18 @@ Buttons for generating, inserting, and regenerating copy
 ### Input Fields:
 
 Tone: Dropdown (Casual, Formal, Grandiose)
+
 Length of the Copy: Dropdown (Short, Medium, Long)
+
 Features of the Building: Text input
+
 Brand Positioning: Text input
 
 ### Buttons:
 Generate: Generates marketing copy
+
 Insert in DB: Inserts data into the database
+
 Regenerate: Allows regenerating portions of the copy
 
 

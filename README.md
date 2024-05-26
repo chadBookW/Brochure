@@ -8,9 +8,26 @@ This web application I developed helps users create marketing copy for a real es
 Input fields for Tone, Length, Features, and Brand Positioning
 Buttons for generating, inserting, and regenerating copy
 
+### Input Fields:
+
+Tone: Dropdown (Casual, Formal, Grandiose)
+Length of the Copy: Dropdown (Short, Medium, Long)
+Features of the Building: Text input
+Brand Positioning: Text input
+
+### Buttons:
+Generate: Generates marketing copy
+Insert in DB: Inserts data into the database
+Regenerate: Allows regenerating portions of the copy
+
+
 
 ## Back-End Server: Built with Node.js (Express)
 REST API endpoints for generating marketing copy, inserting data into Supabase, and regenerating copy
+Back-End
+POST /generate: Generates marketing copy using Eden AI.
+POST /insert: Inserts data into Supabase.
+POST /regenerate: Regenerates selected portions of the copy.
 
 
 # Prerequisites

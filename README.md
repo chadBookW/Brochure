@@ -29,17 +29,13 @@ Regenerate: Allows regenerating portions of the copy
 
 ## Back-End Server: Built with Node.js (Express)
 REST API endpoints for generating marketing copy, inserting data into Supabase, and regenerating copy
-Back-End
+
 POST /generate: Generates marketing copy using Eden AI.
+
 POST /insert: Inserts data into Supabase.
+
 POST /regenerate: Regenerates selected portions of the copy.
 
-
-# Prerequisites
-Node.js and npm
-Supabase account
-Eden AI API Key
-Setup
 
 ## Front-End
 In the frontend directory, I installed the dependencies and started the front-end server.
